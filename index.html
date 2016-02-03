@@ -63,24 +63,34 @@
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<pre class="highlight shell"><code>curl <span class="s2">"api_endpoint_here"</span>
+  -H <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Greeter</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="o">=</span><span class="s2">"World"</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
+  <span class="k">def</span> <span class="nf">say_hi</span>
+    <span class="nb">puts</span> <span class="s2">"Hi </span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2">!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
 </code></pre>
-<pre class="highlight php"><code>curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+<pre class="highlight php"><code><span class="cp">&lt;?php</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">"Hello </span><span class="si">{</span><span class="nv">$world</span><span class="si">}</span><span class="s2">"</span><span class="p">);</span>
+<span class="cp">?&gt;</span>
 </code></pre>
-<pre class="highlight csharp"><code><span class="err">#</span><span class="n">include</span><span class="p">&lt;</span><span class="n">iostream</span><span class="p">&gt;</span>
-
-<span class="k">using</span> <span class="nn">namespace</span> <span class="n">std</span><span class="p">;</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<pre class="highlight python"><code><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>    <span class="c"># write Fibonacci series up to n</span>
+    <span class="s">"""Print a Fibonacci series up to n."""</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">a</span><span class="p">,</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</code></pre>
+<pre class="highlight csharp"><code><span class="c1">// reverse byte order (16-bit)
+</span><span class="k">public</span> <span class="k">static</span> <span class="n">UInt16</span> <span class="nf">ReverseBytes</span><span class="p">(</span><span class="n">UInt16</span> <span class="k">value</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">cout</span> <span class="p">&lt;&lt;</span> <span class="s">"Hello World"</span> <span class="p">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">UInt16</span><span class="p">)((</span><span class="k">value</span> <span class="p">&amp;</span> <span class="m">0xFFU</span><span class="p">)</span> <span class="p">&lt;&lt;</span> <span class="m">8</span> <span class="p">|</span> <span class="p">(</span><span class="k">value</span> <span class="p">&amp;</span> <span class="m">0xFF00U</span><span class="p">)</span> <span class="p">&gt;&gt;</span> <span class="m">8</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 
