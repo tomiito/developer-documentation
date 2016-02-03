@@ -30,8 +30,8 @@ $code-annotation-bg: #1c1c1c;
 //$nav-subitem-bg: #262626;
 //$nav-active-bg: #FFFFFF;
 $lang-select-border: #000;
-$lang-select-bg: #293953; // Fulcrum Refraction, color of language bar, matches the main code example background
-$lang-select-active-bg: #1E70DD; // Fulcrum Blue, color of language tab when selected
+$lang-select-bg:  #1E70DD; // Fulcrum Blue, color of language bar, matches the main code example background
+$lang-select-active-bg: #EFF2F7; // Fulcrum Reflection, color of language tab when selected
 $lang-select-pressed-bg: #EFF2F7; // Fulcrum Reflection, color of language tab bg when mouse is pressed
 $main-bg: #EFF2F7; // Fulcrum Reflection, color of main content background
 $aside-notice-bg: #8fbcd4;
@@ -42,11 +42,11 @@ $search-notice-bg: #c97a7e;
 
 // TEXT COLORS
 ////////////////////
-$main-text: #0F0D08; // main content text color
+$main-text: #0F0D08; // Lucid Black, main content text color
 $nav-text: #293953; // Fulcrum Refraction, color of nav text
 $nav-active-text: #1E70DD; // Fulcrum Blue, color of nav text when selected
 $lang-select-text: #fff; // color of unselected language tab text
-$lang-select-active-text: #fff; // color of selected language tab text
+$lang-select-active-text: #0F0D08; // Lucid, black color of selected language tab text
 $lang-select-pressed-text: #fff; // color of language tab text when mouse is pressed
 
 

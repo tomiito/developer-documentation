@@ -308,7 +308,7 @@ html, body {
   .lang-selector {
     position: fixed;
     z-index: 50;
-    border-bottom: 5px solid $lang-select-active-bg;
+    // border-bottom: 5px solid $lang-select-active-bg;
   }
 }
 
@@ -322,15 +322,18 @@ html, body {
     color: $lang-select-text;
     text-decoration: none;
     padding: 0 10px;
+    margin: 10px;
     line-height: 30px;
     outline: 0;
 
     &:active, &:focus {
-      background-color: $lang-select-pressed-bg;
+    //   background-color: $lang-select-pressed-bg;
       color: $lang-select-pressed-text;
+      border-radius:5px;
     }
 
     &.active {
+      border-radius:5px;
       background-color: $lang-select-active-bg;
       color: $lang-select-active-text;
     }
