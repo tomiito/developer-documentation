@@ -325,6 +325,11 @@ html, body {
     margin: 10px;
     line-height: 30px;
     outline: 0;
+    
+    &:hover {
+    background-color:rgba(239,242,247,0.2);
+	border-radius:5px;
+    }
 
     &:active, &:focus {
     //   background-color: $lang-select-pressed-bg;
