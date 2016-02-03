@@ -556,11 +556,11 @@ html, body {
 // This is all the stuff that appears in the right half of the page
 
 .content {
-  pre, blockquote {
+  blockquote {
     background-color: $code-bg;
     color: #fff;
 
-    padding: 2em $main-padding;
+    padding: 0px $main-padding;
     margin: 0;
     width: $examples-width;
 
@@ -568,7 +568,7 @@ html, body {
     clear:right;
 
     box-sizing: border-box;
-    @include text-shadow(0px 1px 2px rgba(0,0,0,0.4));
+    // @include text-shadow(0px 1px 2px rgba(0,0,0,0.4));
 
     @extend %right-col;
 
@@ -583,16 +583,22 @@ html, body {
 
   pre {
     @extend %code-font;
+    background-color: $code-annotation-bg;
+    color:#fff;
+	padding:2em 28px;
+	border-radius: 10px;
+	margin:0;
+	width:50%;
+	float:right;
+	clear:right;
+	box-sizing:border-box;
   }
 
   blockquote {
     &>p {
-      background-color: $code-annotation-bg;
-      border-radius: 5px;
+      background-color: $code-bg;
       padding: $code-annotation-padding;
-      color: #ccc;
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #404040;
+      color: #fff;
     }
   }
 }
