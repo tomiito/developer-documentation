@@ -62,6 +62,7 @@ $tablet-width: 930px; // min width before reverting to tablet size
 $phone-width: $tablet-width - $nav-width; // min width before reverting to mobile size
 $nav-item-text: 16px; // top item text size
 $nav-subitem-text: 14px; // subitem text size
+$notice-table-text: 14px; // text within notice table
 
 
 // FONTS
@@ -88,7 +89,6 @@ $nav-subitem-text: 14px; // subitem text size
 $nav-footer-border-color: #666;
 $nav-embossed-border-top: #000;
 $nav-embossed-border-bottom: #939393;
-$main-embossed-text-shadow: 0px 1px 0px #fff;
 $search-box-border-color: #666;
 
 

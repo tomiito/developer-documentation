@@ -38,7 +38,7 @@ body {
 }
 
 .content {
-  font-size: 14px;
+    @extend %default-font;
 
   pre, code {
     @extend %code-font;
@@ -58,6 +58,7 @@ body {
 
   table {
     border: 1px solid $print-color;
+    
     tr {
       border-bottom: 1px solid $print-color;
     }
