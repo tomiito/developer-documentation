@@ -58,7 +58,6 @@ html, body {
 
 .tocify-wrapper {
   transition: left 0.3s ease-in-out;
-
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
@@ -68,12 +67,12 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
-//   font-weight: bold;
+  font-size: $nav-item-text;
 
 // This sections bolds the main topics in the nav bar
 #tocify-header0 {
     font-family: 'Helvetica LT W01 Bold';
+    font-weight: light;
     padding-top: 15px;
 }
 #tocify-header8 {
@@ -207,7 +206,7 @@ html, body {
     font-weight: 500;
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
-      font-size: 12px;
+      font-size: $nav-subitem-text;
     }
 
     // for embossed look:
@@ -503,12 +502,10 @@ html, body {
 
     &.warning {
       background-color: $aside-warning-bg;
-      @include text-shadow(0 1px 0 lighten($aside-warning-bg, 15%));
     }
 
     &.success {
       background-color: $aside-success-bg;
-      @include text-shadow(0 1px 0 lighten($aside-success-bg, 15%));
     }
   }
 
