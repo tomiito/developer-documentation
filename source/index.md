@@ -18,6 +18,12 @@ search: true
 ---
 # Introduction
 
+> API Endpoint:
+
+```plaintext
+https://stg-api.samplicio.us/
+```
+
 Lucid brings efficiency and automation to online sampling with Fulcrum, today’s most powerful, open, and customizable online sampling platform.
     
 The API is based on REST (REpresentational State Transfer) principles, which makes it very easy to write and test applications. Both JSON and XML data formats are supported.
@@ -136,6 +142,95 @@ The Fulcrum API requires by default that all requests and responses be written i
 # Surveys
 
 ##List Exchange Surveys
+
+> Definition
+
+```plaintext
+GET  https://stg-api.samplicio.us/Supply/v1/Surveys/AllOfferwall/[SupplierCode]?key=[APIKey]
+```
+
+> Example Request
+
+> Make sure to replace `key` with your API key.
+
+```shell
+curl https://stg-api.samplicio.us/Supply/v1/Surveys/AllOfferwall/[SupplierCode]?key=[APIKey]
+  -H "Authorization: key"
+```
+
+```ruby
+require "fulcrumExchange"
+FulcrumExchange.api_key = "key"
+
+FulcrumExchange::Survey.allOfferwall(:supplierCode)
+```
+
+```php
+<?php
+\FulcrumExchange\FulcrumExchange::setApiKey("key");
+
+\FulcrumExchange\Surveys::allOfferwall(supplierCode);
+?>
+```
+
+```python
+import fulcrumExchange 
+fulcrumExchange.api_key = "key"
+
+fulcrumExchange.surveys.allOfferwall(supplierCode)
+```
+
+```csharp
+var results = await fulcrumExchange.Survey.allOfferwall(supplierCode);
+```
+
+> Example Response
+
+```json 
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetAllOfferwallSurveys successful."
+  ],
+  "ResultCount": 3,
+  "Surveys": [
+    {
+      "SurveyName": "J43297_2125 ASTHMA",
+      "SurveyNumber": 45751,
+      "SurveySID": "26CB55E2-74CC-4E19-88E3-7F2F8D4DE74B",
+      "AccountName": "Harris2",
+      "CountryLanguageID": 9,
+      "LengthOfInterview": 12,
+      "BidIncidence": 30,
+      "Conversion": 1,
+      "CPI": 1.5,
+      "FieldEndDate": "\/Date(1388293200000-0600)\/",
+      "IndustryID": 30,
+      "StudyTypeID": 1,
+      "OverallCompletes": 5,
+      "TotalRemaining": 995,
+      "CompletionPercentage": 0,
+      "SurveyGroup": null,
+      "SurveyGroupID": null,
+      "SurveyGroupExists": 1,
+      "BidLengthOfInterview": 10,
+      "TerminationLengthOfInterview": 6,
+      "SurveyQuotaCalcTypeID": 1,
+      "IsTrueSample": false,
+      "SurveyMobileConversion": 0,
+      "SampleTypeID": null
+    },
+    {...},
+    {...}
+  ]
+}
+```
 
 ##List Allocated Surveys
 
