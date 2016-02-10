@@ -144,32 +144,159 @@
 
 <h3 id="arguments">Arguments</h3>
 
-<p>Property                     | Type     || Required | Description<br>
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;|&mdash;&mdash;&mdash;-||&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
- SurveyName                   | string   || true     | Survey Details: Name of the survey<br>
- SurveyNumber                 | int      || true     | Survey Details: Unique number associated with the survey<br>
- SurveySID                    | string   || true     | Survey Details: Unique hash value (GUID) assoicated with the survey<br>
- AccountName                  | string   || true     | Survey Details: Account name of the survey<br>
- CountryLanguageID            | int      || true     | Settings: Country and Language associated with the survey<br>
- LengthOfInterview            | int      || true     | Field: Estimated time it takes for a respondent to complete the client-side survey (in minutes)<br>
- BidIncidence                 | double   || true     | Bid Stage: Estimated incidence rate of the survey<br>
- Conversion                   | int      || true     | Field: Current conversion rate of the survey after targeting<br>
- CPI                          | double   || true     | CPI: Payout per complete (Please note that the price paid per complete to suppliers is <em>gross</em> and does not include any applicable commissions or fees) 
- FieldEndDate                 | datetime || true     | Field Dates: Estimated field end date<br>
- IndustryID                   | int      || true     | Settings: Industry associated with the survey<br>
- StudyTypeID                  | int      || true     | Settings: Study type associated with the survey<br>
- OverallCompletes             | int      || true     | Field: Total number of completes already achieved<br>
- TotalRemaining               | int      || true     | Field: Number of completes still available<br>
- CompletionPercentage         | int      || true     | Field: Percentage of the total number of completes achieved<br>
- SurveyGroup                  | string   || true     | (Will always be NULL after June 25 2015 release. Refer to SurveyGroupExists Security Validation: Name of survey group associated with the survey<br>
- SurveyGroupID                | int      || true     | (Will always be NULL after June 25 2015 release. Refer to SurveyGroupExists Security Validation: ID of survey group associated with the survey<br>
- SurveyGroupExists            | int      || true     | “0” or “1” – indicates whether there is a survey group(s) associated with the survey with “0” representing false and “1” representing true<br>
- BidLengthOfInterview         | int      || true     | Bid Stage: Estimated Bid LOI associated with the survey<br>
- TerminationLengthOfInterview | int      || true     | Field: Estimated time it takes for a respondent to be termed (in minutes)<br>
- IsTrueSample                 | string   || true     | “true” or “false” – Indicates if True Sample is enabled for the study<br>
- SurveyMobileConversion       | int      || true     | Field: Current mobile conversion rate of the survey after targeting<br>
- SurveyQuotaCalcTypeID        | int      || true     | Either 1=”Completes” (quotas determined by completes) or 2=”Prescreens” (click balancing quotas)<br>
- SampleTypeID                 | int      || true     | Settings: Sample Type associated with the survey                                                                                                        </p>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SurveyName</td>
+<td>string</td>
+<td>true</td>
+<td>Survey Details: Name of the survey</td>
+</tr>
+<tr>
+<td>SurveyNumber</td>
+<td>int</td>
+<td>true</td>
+<td>Survey Details: Unique number associated with the survey</td>
+</tr>
+<tr>
+<td>SurveySID</td>
+<td>string</td>
+<td>true</td>
+<td>Survey Details: Unique hash value (GUID) assoicated with the survey</td>
+</tr>
+<tr>
+<td>AccountName</td>
+<td>string</td>
+<td>true</td>
+<td>Survey Details: Account name of the survey</td>
+</tr>
+<tr>
+<td>CountryLanguageID</td>
+<td>int</td>
+<td>true</td>
+<td>Settings: Country and Language associated with the survey</td>
+</tr>
+<tr>
+<td>LengthOfInterview</td>
+<td>int</td>
+<td>true</td>
+<td>Field: Estimated time it takes for a respondent to complete the client-side survey (in minutes)</td>
+</tr>
+<tr>
+<td>BidIncidence</td>
+<td>double</td>
+<td>true</td>
+<td>Bid Stage: Estimated incidence rate of the survey</td>
+</tr>
+<tr>
+<td>Conversion</td>
+<td>int</td>
+<td>true</td>
+<td>Field: Current conversion rate of the survey after targeting</td>
+</tr>
+<tr>
+<td>CPI</td>
+<td>double</td>
+<td>true</td>
+<td>CPI: Payout per complete (Please note that the price paid per complete to suppliers is <em>gross</em> and does not include any applicable commissions or fees)</td>
+</tr>
+<tr>
+<td>FieldEndDate</td>
+<td>datetime</td>
+<td>true</td>
+<td>Field Dates: Estimated field end date</td>
+</tr>
+<tr>
+<td>IndustryID</td>
+<td>int</td>
+<td>true</td>
+<td>Settings: Industry associated with the survey</td>
+</tr>
+<tr>
+<td>StudyTypeID</td>
+<td>int</td>
+<td>true</td>
+<td>Settings: Study type associated with the survey</td>
+</tr>
+<tr>
+<td>OverallCompletes</td>
+<td>int</td>
+<td>true</td>
+<td>Field: Total number of completes already achieved</td>
+</tr>
+<tr>
+<td>TotalRemaining</td>
+<td>int</td>
+<td>true</td>
+<td>Field: Number of completes still available</td>
+</tr>
+<tr>
+<td>CompletionPercentage</td>
+<td>int</td>
+<td>true</td>
+<td>Field: Percentage of the total number of completes achieved</td>
+</tr>
+<tr>
+<td>SurveyGroup</td>
+<td>string</td>
+<td>true</td>
+<td>(Will always be NULL after June 25 2015 release. Refer to SurveyGroupExists Security Validation: Name of survey group associated with the survey</td>
+</tr>
+<tr>
+<td>SurveyGroupID</td>
+<td>int</td>
+<td>true</td>
+<td>(Will always be NULL after June 25 2015 release. Refer to SurveyGroupExists Security Validation: ID of survey group associated with the survey</td>
+</tr>
+<tr>
+<td>SurveyGroupExists</td>
+<td>int</td>
+<td>true</td>
+<td>“0” or “1” – indicates whether there is a survey group(s) associated with the survey with “0” representing false and “1” representing true</td>
+</tr>
+<tr>
+<td>BidLengthOfInterview</td>
+<td>int</td>
+<td>true</td>
+<td>Bid Stage: Estimated Bid LOI associated with the survey</td>
+</tr>
+<tr>
+<td>TerminationLengthOfInterview</td>
+<td>int</td>
+<td>true</td>
+<td>Field: Estimated time it takes for a respondent to be termed (in minutes)</td>
+</tr>
+<tr>
+<td>IsTrueSample</td>
+<td>string</td>
+<td>true</td>
+<td>“true” or “false” – Indicates if True Sample is enabled for the study</td>
+</tr>
+<tr>
+<td>SurveyMobileConversion</td>
+<td>int</td>
+<td>true</td>
+<td>Field: Current mobile conversion rate of the survey after targeting</td>
+</tr>
+<tr>
+<td>SurveyQuotaCalcTypeID</td>
+<td>int</td>
+<td>true</td>
+<td>Either 1=”Completes” (quotas determined by completes) or 2=”Prescreens” (click balancing quotas)</td>
+</tr>
+<tr>
+<td>SampleTypeID</td>
+<td>int</td>
+<td>true</td>
+<td>Settings: Sample Type associated with the survey</td>
+</tr>
+</tbody></table>
 
 <blockquote>
 <p>Definition</p>
