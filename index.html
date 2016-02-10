@@ -180,16 +180,29 @@
 </code></pre>
 
 <blockquote>
-<p>Example Request
-Make sure to replace <code class="prettyprint">key</code> with your API key.</p>
+<p>Example Request</p>
+
+<p>Make sure to replace <code class="prettyprint">key</code> with your API key.</p>
 </blockquote>
 <pre class="highlight shell"><code>curl https://stg-api.samplicio.us/Supply/v1/Surveys/AllOfferwall/[SupplierCode]?key<span class="o">=[</span>APIKey]
   -H <span class="s2">"Authorization: key"</span>
 </code></pre>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"fulcrumExchange"</span>
-<span class="no">FulcrumExchange</span><span class="p">.</span><span class="nf">api_key</span> <span class="o">=</span> <span class="s2">"key"</span>
+<pre class="highlight ruby"><code><span class="c1"># No requirement to use API?</span>
+<span class="c1"># Show how to parse JSON result?</span>
+<span class="c1"># What role does api_key play?</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="no">FulcrumExchange</span><span class="o">::</span><span class="no">Survey</span><span class="p">.</span><span class="nf">allOfferwall</span><span class="p">(</span><span class="ss">:supplierCode</span><span class="p">)</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">"key"</span>
+
+<span class="n">allOfferwall</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'http://stg-api.samplicio.us/Supply/v1/Surveys/AllOfferwall/[SupplierCode]?key=[APIKey]'</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="s2">""</span>
+
+<span class="n">allOfferwall</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
+  <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">line</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre>
 <pre class="highlight php"><code><span class="cp">&lt;?php</span>
 <span class="nx">\FulcrumExchange\FulcrumExchange</span><span class="o">::</span><span class="na">setApiKey</span><span class="p">(</span><span class="s2">"key"</span><span class="p">);</span>
