@@ -575,15 +575,22 @@ html, body {
 
   pre {
     @extend %code-font;
-    background-color: $code-annotation-bg;
+    
+    background-color: $code-bg;
     color:#fff;
-	padding:2em 28px;
-	border-radius: 10px;
-	margin:0;
-	width: $examples-width;
-	float:right;
-	clear:right;
-	box-sizing:border-box;
+    
+	padding: 0px $main-padding;
+    margin: 0;
+    width: $examples-width;
+
+    float:right;
+    clear:right;
+
+    box-sizing: border-box;
+
+    @extend %right-col;
+    
+    &>code { margin: 0; }
   }
 
   blockquote {
