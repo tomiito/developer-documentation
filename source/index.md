@@ -7,6 +7,7 @@ language_tabs:
   - php : PHP
   - python : Python
   - csharp : C#
+  - javascript : Node.js
 
 toc_footers:
   - <a href='https://luc.id/fulcrum/'>Get access to Fulcrum APIs</a>
@@ -31,50 +32,6 @@ The API is based on REST (REpresentational State Transfer) principles, which mak
 # Guides
 
 # Authentication
-
-> To authorize, use this code:
-
-```shell
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```ruby
-class Greeter
-  def initialize(name="World")
-    @name = name
-  end
-
-  def say_hi
-    puts "Hi #{@name}!"
-  end
-end
-```
-
-```php
-<?php
-  print("Hello {$world}");
-?>
-```
-
-```python
-def fib(n):    # write Fibonacci series up to n
-    """Print a Fibonacci series up to n."""
-    a, b = 0, 1
-    while a < n:
-        print a,
-        a, b = b, a+b
-```
-
-```csharp
-// reverse byte order (16-bit)
-public static UInt16 ReverseBytes(UInt16 value)
-{
-  return (UInt16)((value & 0xFFU) << 8 | (value & 0xFF00U) >> 8);
-}
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
 
 # Resources
 
@@ -146,54 +103,41 @@ The Fulcrum API requires by default that all requests and responses be written i
 > Definition
 
 ```plaintext
-GET  https://stg-api.samplicio.us/Supply/v1/Surveys/AllOfferwall/[SupplierCode]?key=[APIKey]
+GET  https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}
 ```
 
 > Example Request
 
-> Make sure to replace `key` with your API key.
-
 ```shell
-curl https://stg-api.samplicio.us/Supply/v1/Surveys/AllOfferwall/[SupplierCode]?key=[APIKey]
-  -H "Authorization: key"
+curl https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
-# No requirement to use API?
-# Show how to parse JSON result?
-# What role does api_key play?
-require 'json'
+require 'open-uri'
 
-api_key = "key"
-
-allOfferwall = open('http://stg-api.samplicio.us/Supply/v1/Surveys/AllOfferwall/[SupplierCode]?key=[APIKey]')
-
-result = ""
-
-allOfferwall.each do |line|
-  result << line
-end
-
-puts JSON.parse(result)
+open('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
 ```
 
 ```php
-<?php
-\FulcrumExchange\FulcrumExchange::setApiKey("key");
-
-\FulcrumExchange\Surveys::allOfferwall(supplierCode);
-?>
+file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
 ```
 
 ```python
-import fulcrumExchange 
-fulcrumExchange.api_key = "key"
+from urllib2 import urlopen
 
-fulcrumExchange.surveys.allOfferwall(supplierCode)
+urlopen('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
 ```
 
 ```csharp
-var results = await fulcrumExchange.Survey.allOfferwall(supplierCode);
+using System.Net;
+
+(HttpWebRequest)WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}");
+```
+
+```javascript
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}", true);
+xhr.send();
 ```
 
 > Example Response
@@ -213,10 +157,10 @@ var results = await fulcrumExchange.Survey.allOfferwall(supplierCode);
   "ResultCount": 3,
   "Surveys": [
     {
-      "SurveyName": "J43297_2125 ASTHMA",
-      "SurveyNumber": 45751,
-      "SurveySID": "26CB55E2-74CC-4E19-88E3-7F2F8D4DE74B",
-      "AccountName": "Harris2",
+      "SurveyName": "Asthma Sufferers",
+      "SurveyNumber": 457751,
+      "SurveySID": "26CB55E2-74CC-4E19-88E3-7F2F8D4DE74D",
+      "AccountName": "Sample Company",
       "CountryLanguageID": 9,
       "LengthOfInterview": 12,
       "BidIncidence": 30,
