@@ -159,10 +159,22 @@ curl https://stg-api.samplicio.us/Supply/v1/Surveys/AllOfferwall/[SupplierCode]?
 ```
 
 ```ruby
-require "fulcrumExchange"
-FulcrumExchange.api_key = "key"
+# No requirement to use API?
+# Show how to parse JSON result?
+# What role does api_key play?
+require 'json'
 
-FulcrumExchange::Survey.allOfferwall(:supplierCode)
+api_key = "key"
+
+allOfferwall = open('http://stg-api.samplicio.us/Supply/v1/Surveys/AllOfferwall/[SupplierCode]?key=[APIKey]')
+
+result = ""
+
+allOfferwall.each do |line|
+  result << line
+end
+
+puts JSON.parse(result)
 ```
 
 ```php
