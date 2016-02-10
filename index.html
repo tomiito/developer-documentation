@@ -67,6 +67,8 @@
 
 <h1 id="authentication">Authentication</h1>
 
+<h1 id="identifiers">Identifiers</h1>
+
 <h1 id="resources">Resources</h1>
 
 <p>To begin testing the Fulcrum API, first download a REST Client extension for your browser. Whether you are testing the Supply or Demand API, you will need a REST Client in order to make POST, PUT,     and DELETE calls. All GET calls can be made directly through your browser.</p>
@@ -136,6 +138,28 @@
 
 <h2 id="list-exchange-surveys">List Exchange Surveys</h2>
 
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET  http://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}</code></p>
+
+<h3 id="arguments">Arguments</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SurveyName</td>
+<td>string</td>
+<td>TRUE</td>
+<td>Survey Details: Name of the survey</td>
+</tr>
+</tbody></table>
+
 <blockquote>
 <p>Definition</p>
 </blockquote>
@@ -161,9 +185,10 @@
 
 <span class="p">(</span><span class="n">HttpWebRequest</span><span class="p">)</span><span class="n">WebRequest</span><span class="p">.</span><span class="nf">Create</span><span class="p">(</span><span class="s">"https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}"</span><span class="p">);</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">xhr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="s2">"https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-<span class="nx">xhr</span><span class="p">.</span><span class="nx">send</span><span class="p">();</span>
+<pre class="highlight javascript"><code><span class="s1">'use strict'</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">http</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'http'</span><span class="p">);</span>
+<span class="nx">http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}'</span><span class="p">);</span>
 </code></pre>
 
 <blockquote>
