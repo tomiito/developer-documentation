@@ -82,15 +82,11 @@ html, body {
     font-weight: bold;
     padding-top: 15px;
 }
-#tocify-header20 {
+#tocify-header22 {
     font-weight: bold;
     padding-top: 15px;
 }
-#tocify-header30 {
-    font-weight: bold;
-    padding-top: 15px;
-}
-#tocify-header33 {
+#tocify-header32 {
     font-weight: bold;
     padding-top: 15px;
 }
@@ -635,10 +631,6 @@ html, body {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
   }
-  .content blockquote, .content pre {
-    width: auto;
-    float: none;
-   }
 }
 
 @media (max-width: $phone-width) {
@@ -686,7 +678,7 @@ html, body {
     &.open {
       left: 0;
     }
-  }
+   }
 
   .page-wrapper {
     margin-left: 0;
@@ -700,10 +692,5 @@ html, body {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
   }
-  
-  .content blockquote, .content pre {
-    width: auto;
-    float: none;
-   }
   }
 }

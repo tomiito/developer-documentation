@@ -11,9 +11,6 @@ language_tabs:
 
 toc_footers:
   - <a href='https://luc.id/fulcrum/'>Get access to Fulcrum APIs</a>
-
-includes:
-  - errors
   
 search: true
 ---
@@ -104,7 +101,7 @@ The Fulcrum API requires by default that all requests and responses be written i
 
 # Surveys
 
-### Response Properties: Surveys Model
+### Surveys Model
 
 | Property                     | Type     | Description                                                                                                                                             |
 |------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -235,11 +232,15 @@ Returns a list of all unengaged, live survey opportunities available through the
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
 
+#Allocations
+
 ##List Allocated Surveys
 
 ##Show an Allocated Survey
 
-##List Updated Allocated Surveys
+##List Recently Allocated Surveys
+
+#Groups
 
 ##List a Survey’s Groups
 
