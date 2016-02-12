@@ -74,23 +74,23 @@ html, body {
     font-weight: bold;
     padding-top: 15px;
 }
-#tocify-header8 {
+#tocify-header9 {
     font-weight: bold;
     padding-top: 15px;
 }
-#tocify-header11 {
+#tocify-header12 {
     font-weight: bold;
     padding-top: 15px;
 }
-#tocify-header19 {
+#tocify-header20 {
     font-weight: bold;
     padding-top: 15px;
 }
-#tocify-header29 {
+#tocify-header30 {
     font-weight: bold;
     padding-top: 15px;
 }
-#tocify-header32 {
+#tocify-header33 {
     font-weight: bold;
     padding-top: 15px;
 }
@@ -550,7 +550,7 @@ html, body {
 
 .content {
   blockquote {
-    background-color: $code-bg;
+    background-color: $examples-bg;
     color: #fff;
 
     padding: 0px $main-padding;
@@ -579,14 +579,17 @@ html, body {
     background-color: $code-bg;
     color:#fff;
     
-	padding: 0px $main-padding;
-    margin: 0;
-    width: $examples-width;
+	  padding: 10px;
+    margin: 0 3%;
+    width: $code-width;
 
     float:right;
     clear:right;
 
     box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 0px 1px 2px #10223C inset;
+    overflow: auto;
 
     @extend %right-col;
     
@@ -595,7 +598,7 @@ html, body {
 
   blockquote {
     &>p {
-      background-color: $code-bg;
+      background-color: $examples-bg;
       padding: $code-annotation-padding;
       color: #fff;
     }

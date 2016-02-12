@@ -25,7 +25,7 @@ under the License.
 ////////////////////
 $nav-bg: #FFFFFF;
 $examples-bg: #293953; // Fulcrum Refraction, color of main code example background
-$code-bg: #293953; // Fulcrum Refraction, to match the main background
+$code-bg: #212D42; 
 $code-annotation-bg: #0F0D08; // Lucid Black, for code background
 $lang-select-border: #000;
 $lang-select-bg: #1E70DD; // Fulcrum Blue, color of language bar, matches the main code example background
@@ -50,7 +50,8 @@ $aside-notice-text: #fff; // White, color of notice text
 // SIZES
 ////////////////////
 $nav-width: 230px; // width of the navbar
-$examples-width: 50%; // portion of the screen taken up by code examples
+$examples-width: 50%; // portion of the screen taken up by the example area
+$code-width: 44%; //portion of the screen taken up by code snippets
 $logo-margin: 20px; // margin between nav items and logo, ignored if search is active
 $main-padding: 28px; // padding to left and right of content & examples
 $nav-padding: 15px; // padding to left and right of navbar
