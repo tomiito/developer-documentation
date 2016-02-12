@@ -104,6 +104,35 @@ The Fulcrum API requires by default that all requests and responses be written i
 
 # Surveys
 
+### Response Properties: Surveys Model
+
+| Property                     | Type     | Description                                                                                                                                             |
+|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SurveyName                   | string   | External name of the survey. This name may be exposed to respondents. This value is not unique across surveys.                                          |
+| SurveyNumber                 | int      | Unique number associated with the survey.                                                                                                               |
+| SurveySID                    | string   | Unique hash value (GUID) assoicated with the survey.                                                                                                    |
+| AccountName                  | string   | Name of the buyer running the survey.                                                                                                                   |
+| CountryLanguageID            | int      | ID of the country-language combination that the survey is open to.                                                                                      |
+| LengthOfInterview            | int      | Median time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes.                                                       |
+| BidIncidence                 | double   | Estimated incidence rate of the survey as provided by the buyer.                                                                                        |
+| Conversion                   | int      | Percentage of respondents who complete the survey after qualifying.                                                                                     |
+| CPI                          | double   | Gross payout per complete. This value is before any applicable commissions or fees.                                                                     |
+| FieldEndDate                 | datetime | Target date for survey closure. This field usually does not indicate a hard closure time, although buyers may opt to automatically close the study.     |
+| IndustryID                   | int      | Industry associated with the survey's topic.                                                                                                            |
+| StudyTypeID                  | int      | Indicates the survey's format and purpose (i.e. adhoc, recruit, etc).                                                                                   |
+| OverallCompletes             | int      | Number of completes already achieved.                                                                                                                   |
+| TotalRemaining               | int      | Number of completes still available.                                                                                                                    |
+| CompletionPercentage         | int      | Percentage of the survey that has filled in terms of completes.                                                                                         |
+| SurveyGroup                  | string   | Deprecated: Will return NULL. Instead use the SurveyGroupExists property.                                                                               |
+| SurveyGroupID                | int      | Deprecated: Will return NULL. If SurveyGroupExists is TRUE, then [list the survey's groups](#list-a-survey’s-groups).                                   |
+| SurveyGroupExists            | int      | Indicates whether there is a survey group(s) associated with the survey. (0=false, 1=true)                                                              |
+| BidLengthOfInterview         | int      | Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
+| TerminationLengthOfInterview | int      | Median time for a respondent to be termed in minutes.                                                                                                   |
+| IsTrueSample                 | string   | Indicates whether True Sample's Identity Validation feature is enabled for the study.                                                                   |
+| SurveyMobileConversion       | int      | Percentage of mobile respondents who complete the survey after qualifying.                                                                              |
+| SurveyQuotaCalcTypeID        | int      | Indicates whether quotas are calculated based on completes or prescreens (1=Completes, 2=Prescreens).                                                   |
+| SampleTypeID                 | int      | The type of sample the survey is open to (i.e. consumer, business-to-business, etc).                                                                    |
+
 ##List Exchange Surveys
 
 > Definition
@@ -205,35 +234,6 @@ Returns a list of all unengaged, live survey opportunities available through the
 | Property                     | Type     | Required | Description                                                                                                                                  |
 |------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
-
-### Response Properties: Surveys Model
-
-| Property                     | Type     | Description                                                                                                                                             |
-|------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SurveyName                   | string   | External name of the survey. This name may be exposed to respondents. This value is not unique across surveys.                                          |
-| SurveyNumber                 | int      | Unique number associated with the survey.                                                                                                               |
-| SurveySID                    | string   | Unique hash value (GUID) assoicated with the survey.                                                                                                    |
-| AccountName                  | string   | Name of the buyer running the survey.                                                                                                                   |
-| CountryLanguageID            | int      | ID of the country-language combination that the survey is open to.                                                                                      |
-| LengthOfInterview            | int      | Median time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes.                                                       |
-| BidIncidence                 | double   | Estimated incidence rate of the survey as provided by the buyer.                                                                                        |
-| Conversion                   | int      | Percentage of respondents who complete the survey after qualifying.                                                                                     |
-| CPI                          | double   | Gross payout per complete. This value is before any applicable commissions or fees.                                                                     |
-| FieldEndDate                 | datetime | Target date for survey closure. This field usually does not indicate a hard closure time, although buyers may opt to automatically close the study.     |
-| IndustryID                   | int      | Industry associated with the survey's topic.                                                                                                            |
-| StudyTypeID                  | int      | Indicates the survey's format and purpose (i.e. adhoc, recruit, etc).                                                                                   |
-| OverallCompletes             | int      | Number of completes already achieved.                                                                                                                   |
-| TotalRemaining               | int      | Number of completes still available.                                                                                                                    |
-| CompletionPercentage         | int      | Percentage of the survey that has filled in terms of completes.                                                                                         |
-| SurveyGroup                  | string   | Deprecated: Will return NULL. Instead use the SurveyGroupExists property.                                                                               |
-| SurveyGroupID                | int      | Deprecated: Will return NULL. If SurveyGroupExists is TRUE, then [list the survey's groups](#list-a-survey’s-groups).                                  |
-| SurveyGroupExists            | int      | Indicates whether there is a survey group(s) associated with the survey. (0=false, 1=true)                                                              |
-| BidLengthOfInterview         | int      | Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
-| TerminationLengthOfInterview | int      | Median time for a respondent to be termed in minutes.                                                                                                   |
-| IsTrueSample                 | string   | Indicates whether True Sample's Identity Validation feature is enabled for the study.                                                                   |
-| SurveyMobileConversion       | int      | Percentage of mobile respondents who complete the survey after qualifying.                                                                              |
-| SurveyQuotaCalcTypeID        | int      | Indicates whether quotas are calculated based on completes or prescreens (1=Completes, 2=Prescreens).                                                   |
-| SampleTypeID                 | int      | The type of sample the survey is open to (i.e. consumer, business-to-business, etc).                                                                    |
 
 ##List Allocated Surveys
 

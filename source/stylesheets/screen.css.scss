@@ -516,6 +516,9 @@ html, body {
       background-color: $aside-success-bg;
     }
   }
+  aside>a {
+      color: #FFF;
+  }
 
   aside:before {
     vertical-align: middle;
