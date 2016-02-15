@@ -221,9 +221,9 @@ http.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}
 }
 ```
 
-Returns a list of all unengaged, live survey opportunities available through the Exchange.
+Returns a list of all live survey opportunities available through the Exchange for which you have an allocation or entry link.
 
-<aside class="notice">This method only returns opportunities where you do not already have an allocation or an entry link. After <a href="#create-a-link">creating an entry link</a> you can <a href="#list-allocated-surveys">list allocated surveys</a> or <a href="#show-an-allocated-survey">show an allocated survey</a>.</aside>
+<aside class="notice">After <a href="#create-a-link">creating an entry link</a> you can <a href="#list-allocated-surveys">list allocated surveys</a> or <a href="#show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
 
 
 ### Arguments
