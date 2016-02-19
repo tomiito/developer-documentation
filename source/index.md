@@ -101,6 +101,8 @@ The Fulcrum API requires by default that all requests and responses be written i
 
 # Surveys
 
+The Survey resource contains basic information about a survey opportunity posted by a sample buyer. More detailed information about who qualifies for the survey is contained in the [Qualifications](#qualifications) and [Quotas](#quotas) resources.
+
 ### Surveys Model
 
 | Property                     | Type     | Description                                                                                                                                             |
@@ -120,9 +122,9 @@ The Fulcrum API requires by default that all requests and responses be written i
 | OverallCompletes             | int      | Number of completes already achieved.                                                                                                                   |
 | TotalRemaining               | int      | Number of completes still available.                                                                                                                    |
 | CompletionPercentage         | int      | Percentage of the survey that has filled in terms of completes.                                                                                         |
-| SurveyGroup                  | string   | Deprecated: Will return NULL. Instead use the SurveyGroupExists property.                                                                               |
-| SurveyGroupID                | int      | Deprecated: Will return NULL. If SurveyGroupExists is TRUE, then [list the survey's groups](#list-a-survey’s-groups).                                   |
-| SurveyGroupExists            | int      | Indicates whether there is a survey group(s) associated with the survey. (0=false, 1=true)                                                              |
+| SurveyGroup                  | string   | Deprecated: Will return `null`. Instead use the SurveyGroupExists property.                                                                               |
+| SurveyGroupID                | int      | Deprecated: Will return `null`. If SurveyGroupExists is `true`, then [list the survey's groups](#list-a-survey’s-groups).                                   |
+| SurveyGroupExists            | int      | Indicates whether there is a survey group(s) associated with the survey. (0=`false`, 1=`true`)                                                              |
 | BidLengthOfInterview         | int      | Estimated time for a respondent to complete the survey excluding the Fulcrum prescreener in minutes as provided by the buyer.                           |
 | TerminationLengthOfInterview | int      | Median time for a respondent to be termed in minutes.                                                                                                   |
 | IsTrueSample                 | string   | Indicates whether True Sample's Identity Validation feature is enabled for the study.                                                                   |
@@ -145,9 +147,154 @@ curl https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key=
 ```
 
 ```ruby
-require 'open-uri'
+require 'net/http'
 
-open('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
+uri = URI('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
+
+http = Net::HTTP.new(uri.host, uri.port)
+
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(uri.request_uri)
+
+response = http.request(request)  
+```
+
+```php
+<?php
+$request = file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+?>
+```
+
+```python
+import requests
+
+request = requests.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
+```
+
+```csharp
+using System.Net;
+
+WebRequest request = WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}");
+
+WebResponse response = request.GetResponse();
+```
+
+```javascript
+const https = require('https');
+
+https.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+```
+
+> Example Response
+
+```json 
+{
+  "ApiResult": 0,
+  "ApiResultCode": 0,
+  "ApiAccount": "Anon",
+  "AccountType": 2,
+  "ApiAccountStatus": 1,
+  "AccountCode": "AA",
+  "ApiMessages": [
+    "API Message: Response initialized.",
+    "API Message: GetAllOfferwallSurveys successful."
+  ],
+  "ResultCount": 3,
+  "Surveys": [
+    {
+      "SurveyName": "Asthma Sufferers",
+      "SurveyNumber": 457751,
+      "SurveySID": "26CB55E2-74CC-4E19-88E3-7F2F8D4DE74D",
+      "AccountName": "Sample Company",
+      "CountryLanguageID": 9,
+      "LengthOfInterview": 12,
+      "BidIncidence": 30,
+      "Conversion": 1,
+      "CPI": 1.5,
+      "FieldEndDate": "\/Date(1388293200000-0600)\/",
+      "IndustryID": 30,
+      "StudyTypeID": 1,
+      "OverallCompletes": 5,
+      "TotalRemaining": 995,
+      "CompletionPercentage": 0,
+      "SurveyGroup": null,
+      "SurveyGroupID": null,
+      "SurveyGroupExists": 1,
+      "BidLengthOfInterview": 10,
+      "TerminationLengthOfInterview": 6,
+      "SurveyQuotaCalcTypeID": 1,
+      "IsTrueSample": false,
+      "SurveyMobileConversion": 0,
+      "SampleTypeID": null
+    },
+    {...},
+    {...}
+  ]
+}
+```
+
+Returns a list of all live survey opportunities available through the Exchange for which you have an allocation or entry link.
+
+<aside class="notice">After <a href="#create-a-link">creating an entry link</a> you can <a href="#list-allocated-surveys">list allocated surveys</a> or <a href="#show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
+
+
+### Arguments
+
+| Property                     | Type     | Required | Description                                                                                                                                  |
+|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
+
+[![Run in Postman](https://run.pstmn.io/button.png)](https://www.getpostman.com/run-collection/bb68be2cda20d9bc87b6)
+
+#Allocations
+
+##List Allocated Surveys
+
+##Show an Allocated Survey
+
+##List Recently Allocated Surveys
+
+#Groups
+
+##List a Survey’s Groups
+
+#Qualifications
+
+##Show Qualifications
+
+#Quotas
+
+##Show Quotas
+
+#Entry Links
+
+##Create a Link
+
+> Definition
+
+```plaintext
+POST  https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+curl https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}
+```
+
+```ruby
+require 'net/http'
+
+uri = URI('https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}')
+Net::HTTP.get(uri) 
+
+url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}'
+uri = URI.parse(url)
+
+params = {foo: "bar"}
+
+Net::HTTP.post_form(uri, params)
 ```
 
 ```php
@@ -220,41 +367,6 @@ http.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}
   ]
 }
 ```
-
-Returns a list of all live survey opportunities available through the Exchange for which you have an allocation or entry link.
-
-<aside class="notice">After <a href="#create-a-link">creating an entry link</a> you can <a href="#list-allocated-surveys">list allocated surveys</a> or <a href="#show-an-allocated-survey">show an allocated survey</a> to access these opportunities.</aside>
-
-
-### Arguments
-
-| Property                     | Type     | Required | Description                                                                                                                                  |
-|------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| SupplierCode                 | int      | true     | Unique code associated with a supplier account.                                                                                              |
-
-#Allocations
-
-##List Allocated Surveys
-
-##Show an Allocated Survey
-
-##List Recently Allocated Surveys
-
-#Groups
-
-##List a Survey’s Groups
-
-#Qualifications
-
-##Show Qualifications
-
-#Quotas
-
-##Show Quotas
-
-#Entry Links
-
-##Create a Link
 
 ##Update a Links
 
