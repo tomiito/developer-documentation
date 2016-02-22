@@ -280,44 +280,35 @@ POST  https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{Su
 > Example Request
 
 ```shell
-curl https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}
+curl -H "Content-Type: application/json" \
+-X POST --data '{"SupplierLinkTypeCode": "OWS", "TrackingTypeCode": "NONE"}' \
+https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}
 ```
 
 ```ruby
-require 'net/http'
 
-uri = URI('https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}')
-Net::HTTP.get(uri) 
-
-url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}'
-uri = URI.parse(url)
-
-params = {foo: "bar"}
-
-Net::HTTP.post_form(uri, params)
 ```
 
 ```php
-file_get_contents('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
+
 ```
 
 ```python
-from urllib2 import urlopen
+import requests, json
 
-urlopen('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}')
+url = 'https://api.samplicio.us/Supply/v1/SupplierLinks/Create/{SurveyNumber}/{SupplierCode}?key={APIKey}'
+params = {'SupplierLinkTypeCode':'OWS','TrackingTypeCode':'NONE'}
+headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+
+request = requests.post(url, data=json.dumps(data), headers=headers)
 ```
 
 ```csharp
-using System.Net;
 
-(HttpWebRequest)WebRequest.Create("https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}");
 ```
 
 ```javascript
-'use strict';
-const http = require('http');
 
-http.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}?key={APIKey}');
 ```
 
 > Example Response
@@ -332,39 +323,21 @@ http.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}
   "AccountCode": "AA",
   "ApiMessages": [
     "API Message: Response initialized.",
-    "API Message: GetAllOfferwallSurveys successful."
+    "API Mes sage: CreateSupplierLinkFromModel successful."
   ],
-  "ResultCount": 3,
-  "Surveys": [
-    {
-      "SurveyName": "Asthma Sufferers",
-      "SurveyNumber": 457751,
-      "SurveySID": "26CB55E2-74CC-4E19-88E3-7F2F8D4DE74D",
-      "AccountName": "Sample Company",
-      "CountryLanguageID": 9,
-      "LengthOfInterview": 12,
-      "BidIncidence": 30,
-      "Conversion": 1,
-      "CPI": 1.5,
-      "FieldEndDate": "\/Date(1388293200000-0600)\/",
-      "IndustryID": 30,
-      "StudyTypeID": 1,
-      "OverallCompletes": 5,
-      "TotalRemaining": 995,
-      "CompletionPercentage": 0,
-      "SurveyGroup": null,
-      "SurveyGroupID": null,
-      "SurveyGroupExists": 1,
-      "BidLengthOfInterview": 10,
-      "TerminationLengthOfInterview": 6,
-      "SurveyQuotaCalcTypeID": 1,
-      "IsTrueSample": false,
-      "SurveyMobileConversion": 0,
-      "SampleTypeID": null
-    },
-    {...},
-    {...}
-  ]
+  "ResultCount": 1,
+  "SupplierLink": {
+    "SupplierLinkTypeCode": "OWS",
+    "TrackingTypeCode": "NONE",
+    "DefaultLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=1&uid=[%MID%]",
+    "SuccessLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=2&uid=[%MID%]&COST=[%COST%]",
+    "FailureLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=1&uid=[%MID%]",
+    "OverQuotaLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=1&uid=[%MID%]",
+    "QualityTerminationLink": "http:\/\/www.anon.com\/surveys?v=federated&fs=1&uid=[%MID%]",
+    "LiveLink": "http:\/\/staging.samplicio.us\/router\/default.aspx?SID=52c975a7-15fb-804d-9bf2-3d5d553aa7af&PID=",
+    "TestLink": "http:\/ \/staging.samplicio.us\/router\/default.aspx?SID=a948gef7-3591-42c0-ce51-0e4jdf25582f&FIRID=MSDHONI7&SUMSTAT=1&PID=test",
+    "CPI": 100
+  }
 }
 ```
 
@@ -443,6 +416,37 @@ http.get('https://api.samplicio.us/Supply/v1/Surveys/AllOfferwall/{SupplierCode}
 ##Update an Allocation
 
 ##Delete an Allocation
+> Definition
+
+```plaintext
+DELETE  http://stg-api.samplicio.us/Demand/v1/SupplierAllocations/Delete/{SurveyNumber}/{SupplierCode}?key={APIKey}
+```
+
+> Example Request
+
+```shell
+
+```
+
+```ruby
+
+```
+
+```php
+
+```
+
+```python
+
+```
+
+```csharp
+
+```
+
+```javascript
+
+```
 
 ##List Allocations
 
