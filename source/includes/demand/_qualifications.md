@@ -36,7 +36,7 @@ curl -H "Content-Type: application/json" \
 	"PreCodes": [
 		"1"
 	],
-	"Order": 7
+	"Order": 2
 }' \
 http://api.samplicio.us/Demand/v1/SurveyQualifications/Create/{SurveyNumber}?key={APIKey}
 ```
@@ -64,7 +64,7 @@ request.body = {
 	"PreCodes": [
 		"1"
 	],
-	"Order": 7
+	"Order": 2
 }.to_json
 
 surveyQualifications = http.request(request)
@@ -83,7 +83,7 @@ $params = '{
 	"PreCodes": [
 		"1"
 	],
-	"Order": 7
+	"Order": 2
 }';
 
 curl_setopt_array($curl, array(
@@ -118,7 +118,7 @@ params = {
 	"PreCodes": [
 		"1"
 	],
-	"Order": 7
+	"Order": 2
 }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
@@ -141,7 +141,7 @@ string params = "{
 	\"PreCodes\": [
 		\"1\"
 	],
-	\"Order\": 7
+	\"Order\": 2
 }";
     
 request.Method = "POST";
@@ -177,7 +177,7 @@ var json = {
 	"PreCodes": [
 		"1"
 	],
-	"Order": 7
+	"Order": 2
 };
 
 var params = JSON.stringify(json);
@@ -210,7 +210,7 @@ request.end();
     "API Message: Response initialized.",
     "API Message: CreateSurveyQualificationFromModel successful."
   ],
-  "ResultCount": 7,
+  "ResultCount": 2,
   "Qualifications": [
     {
       "Name": "AGE",
@@ -231,16 +231,15 @@ request.end();
       ]
     },
     {
-      "Name": "GENDER",
-      "QuestionID": 43,
+      "Name": "STANDARD_RELATIONSHIP",
+      "QuestionID": 632,
       "LogicalOperator": "OR",
-      "NumberOfRequiredConditions": 0,
+      "NumberOfRequiredConditions": 1,
       "IsActive": true,
-      "Order": 3,
       "PreCodes": [
-        "1",
-        "2"
-      ]
+        "1"
+      ],
+      "Order": 2
     }
   ]
 }
@@ -248,7 +247,7 @@ request.end();
 
 Creates qualification and conditions for an existing Fulcrum survey..   
 
-<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed if desired using the (SurveyQualifications/Update)[#update-a-qualification] call.</aside>
+<aside class="notice">Fulcrum automatically adds 7 qualifications to US studies when a survey is created (Age, Gender, Zip, STATE, Ethnicity, Hispanic, Standard HHI). These qualifications can be edited or removed through the <a href="#update-a-qualification">update call</a>.</aside>
 
 #### Arguments
 
@@ -284,7 +283,7 @@ curl -H "Content-Type: application/json" \
 	"PreCodes": [
 		"2"
 	],
-	"Order": 7
+	"Order": 2
 }' \
 https://api.samplicio.us/Demand/v1/SurveyQualifications/Update/{SurveyNumber}?key={APIKey}
 ```
@@ -312,7 +311,7 @@ request.body = {
 	"PreCodes": [
 		"2"
 	],
-	"Order": 7
+	"Order": 2
 }.to_json
 
 surveyQualifications = http.request(request)
@@ -331,7 +330,7 @@ $params = '{
 	"PreCodes": [
 		"2"
 	],
-	"Order": 7
+	"Order": 1
 }';
 
 curl_setopt_array($curl, array(
@@ -366,7 +365,7 @@ params = {
 	"PreCodes": [
 		"2"
 	],
-	"Order": 7
+	"Order": 2
 }
 data = json.dumps(params)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
@@ -425,7 +424,7 @@ var json = {
 	"PreCodes": [
 		"2"
 	],
-	"Order": 7
+	"Order": 2
 };
 
 var params = JSON.stringify(json);
@@ -458,7 +457,7 @@ request.end();
     "API Message: Response initialized.",
     "API Message: UpdateSurveyQualificationFromModel successful."
   ],
-  "ResultCount": 7,
+  "ResultCount": 2,
   "Qualifications": [
     {
       "Name": "AGE",
@@ -479,16 +478,15 @@ request.end();
       ]
     },
     {
-      "Name": "GENDER",
-      "QuestionID": 43,
+      "Name": "STANDARD_RELATIONSHIP",
+      "QuestionID": 632,
       "LogicalOperator": "OR",
-      "NumberOfRequiredConditions": 0,
+      "NumberOfRequiredConditions": 1,
       "IsActive": true,
-      "Order": 3,
       "PreCodes": [
-        "1",
-        "2"
-      ]
+        "1"
+      ],
+      "Order": 2
     }
   ]
 }
@@ -577,7 +575,7 @@ var surveyQualifications = https.get('https://api.samplicio.us/Demand/v1/SurveyQ
     "API Message: Response initialized.",
     "API Message: GetSurveyQualificationsBySurveyNumber successful."
   ],
-  "ResultCount": 6,
+  "ResultCount": 2,
   "Qualifications": [
     {
       "Name": "AGE",
@@ -598,16 +596,15 @@ var surveyQualifications = https.get('https://api.samplicio.us/Demand/v1/SurveyQ
       ]
     },
     {
-      "Name": "GENDER",
-      "QuestionID": 43,
+      "Name": "STANDARD_RELATIONSHIP",
+      "QuestionID": 632,
       "LogicalOperator": "OR",
-      "NumberOfRequiredConditions": 0,
+      "NumberOfRequiredConditions": 1,
       "IsActive": true,
-      "Order": 3,
       "PreCodes": [
-        "1",
-        "2"
-      ]
+        "1"
+      ],
+      "Order": 2
     }
   ]
 }
