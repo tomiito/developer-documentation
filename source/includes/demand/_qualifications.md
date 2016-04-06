@@ -330,7 +330,7 @@ $params = '{
 	"PreCodes": [
 		"2"
 	],
-	"Order": 1
+	"Order": 2
 }';
 
 curl_setopt_array($curl, array(
@@ -388,7 +388,7 @@ string params = "{
 	\"PreCodes\": [
 		"2"
 	],
-	\"Order\": 7
+	\"Order\": 2
 }";
     
 request.Method = "PUT";
